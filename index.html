@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step Sequencer by Isaac Amador</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Step Sequencer</h1>
+    </div>
+    <div class="subtitle">
+      <h3>Isaac Amador</h3>
+    </div>
+    <div class="controls">
+      <button id="startButton" onclick="startSequencer()">Start</button>
+      <input
+        type="range"
+        id="tempoSlider"
+        min="40"
+        max="240"
+        value="120"
+        onchange="updateTempo()"
+      />
+      <label for="tempoSlider"
+        >Tempo: <span id="tempoValue">120</span> BPM</label
+      >
+      <button id="stopButton" onclick="stopSequencer()" disabled>Stop</button>
+    </div>
+    <div class="sequencer">
+      <div class="step">
+        <input type="checkbox" id="step1" />
+        <label for="step1"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step2" />
+        <label for="step2"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step3" />
+        <label for="step3"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step4" />
+        <label for="step4"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step5" />
+        <label for="step5"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step6" />
+        <label for="step6"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step7" />
+        <label for="step7"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step8" />
+        <label for="step8"></label>
+      </div>
+    </div>
+    <div class="sequencer">
+      <div class="step">
+        <input type="checkbox" id="step9" />
+        <label for="step9"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step10" />
+        <label for="step10"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step11" />
+        <label for="step11"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step12" />
+        <label for="step12"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step13" />
+        <label for="step13"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step14" />
+        <label for="step14"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step15" />
+        <label for="step15"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step16" />
+        <label for="step16"></label>
+      </div>
+    </div>
+
+    <!-- <audio id="middleC" src="oscillator.js"></audio> -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
