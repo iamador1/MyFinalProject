@@ -1,7 +1,9 @@
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Times New Roman", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: rgb(111, 185, 207);
 }
 .title {
   text-align: center;
@@ -26,7 +28,7 @@ body {
 .step {
   width: 50px;
   height: 50px;
-  border: 1px solid #767676;
+  border: 2.5px solid #cee2e2b7;
 }
 
 .step input[type="checkbox"] {

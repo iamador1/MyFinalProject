@@ -1,3 +1,4 @@
+<!-- Establishes html document-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,11 +9,12 @@
   </head>
   <body>
     <div class="title">
-      <h1>Step Sequencer</h1>
+      <h1>STEP SEQUENCER</h1>
     </div>
     <div class="subtitle">
       <h3>Isaac Amador</h3>
     </div>
+    <!-- Controls + parameters-->
     <div class="controls">
       <button id="startButton" onclick="startSequencer()">Start</button>
       <input
@@ -28,7 +30,89 @@
       >
       <button id="stopButton" onclick="stopSequencer()" disabled>Stop</button>
     </div>
+    <div class="controls">
+      <input
+        type="range"
+        id="attackSlider"
+        min="0"
+        max="1"
+        value="0.25"
+        step="0.01"
+        onchange="updateAttack()"
+      />
+      <label for="attackSlider"
+        >Attack: <span id="attackValue">25</span> %</label
+      >
+    </div>
+    <div class="controls">
+      <input
+        type="range"
+        id="releaseSlider"
+        min="0"
+        max="1"
+        value="0.25"
+        step="0.01"
+        onchange="updateRelease()"
+      />
+      <label for="releaseSlider"
+        >Release: <span id="releaseValue">25</span> %</label
+      >
+    </div>
+    <!-- Sequencer information -->
     <div class="sequencer">
+      <select id="rowOnePitch">
+        <option value="523.3">C5</option>
+        <option value="554.4">C#5/Db5</option>
+        <option value="587.3">D5</option>
+        <option value="622.3">D#5/Eb5</option>
+        <option value="659.3">E5</option>
+        <option value="698.5">F5</option>
+        <option value="740">F#5/Gb5</option>
+        <option value="784">G5</option>
+        <option value="830.6">G#5/Ab5</option>
+        <option value="880">A5</option>
+        <option value="932.3">A#5/Bb5</option>
+        <option value="987.8">B5</option>
+
+        <option value="261.626">C4</option>
+        <option value="277.183">C#4/Db4</option>
+        <option value="293.665">D4</option>
+        <option value="311.127">D#4/Eb4</option>
+        <option value="329.628">E4</option>
+        <option value="349.228">F4</option>
+        <option value="369.994">F#4/Gb4</option>
+        <option value="391.995">G4</option>
+        <option value="415.305">G#4/Ab4</option>
+        <option value="440">A4</option>
+        <option value="466.164">A#4/Bb4</option>
+        <option value="493.883">B4</option>
+
+        <option value="130.8">C3</option>
+        <option value="138.6">C#3/Db3</option>
+        <option value="146.8">D3</option>
+        <option value="155.6">D#3/Eb3</option>
+        <option value="164.8">E3</option>
+        <option value="174.6">F3</option>
+        <option value="185">F#3/Gb3</option>
+        <option value="196">G3</option>
+        <option value="207.7">G#3/Ab3</option>
+        <option value="220">A3</option>
+        <option value="233.1">A#3/Bb3</option>
+        <option value="246.9">B3</option>
+
+        <option value="65.41">C2</option>
+        <option value="69.3">C#2/Db2</option>
+        <option value="73.42">D2</option>
+        <option value="77.78">D#2/Eb2</option>
+        <option value="82.41">E2</option>
+        <option value="87.31">F2</option>
+        <option value="92.5">F#2/Gb2</option>
+        <option value="98">G2</option>
+        <option value="103.8">G#2/Ab2</option>
+        <option value="110">A2</option>
+        <option value="116.5">A#2/Bb2</option>
+        <option value="123.5">B2</option>
+      </select>
       <div class="step">
         <input type="checkbox" id="step1" />
         <label for="step1"></label>
@@ -63,6 +147,59 @@
       </div>
     </div>
     <div class="sequencer">
+      <select id="rowTwoPitch">
+        <option value="523.3">C5</option>
+        <option value="554.4">C#5/Db5</option>
+        <option value="587.3">D5</option>
+        <option value="622.3">D#5/Eb5</option>
+        <option value="659.3">E5</option>
+        <option value="698.5">F5</option>
+        <option value="740">F#5/Gb5</option>
+        <option value="784">G5</option>
+        <option value="830.6">G#5/Ab5</option>
+        <option value="880">A5</option>
+        <option value="932.3">A#5/Bb5</option>
+        <option value="987.8">B5</option>
+
+        <option value="261.626">C4</option>
+        <option value="277.183">C#4/Db4</option>
+        <option value="293.665">D4</option>
+        <option value="311.127">D#4/Eb4</option>
+        <option value="329.628">E4</option>
+        <option value="349.228">F4</option>
+        <option value="369.994">F#4/Gb4</option>
+        <option value="391.995">G4</option>
+        <option value="415.305">G#4/Ab4</option>
+        <option value="440">A4</option>
+        <option value="466.164">A#4/Bb4</option>
+        <option value="493.883">B4</option>
+
+        <option value="130.8">C3</option>
+        <option value="138.6">C#3/Db3</option>
+        <option value="146.8">D3</option>
+        <option value="155.6">D#3/Eb3</option>
+        <option value="164.8">E3</option>
+        <option value="174.6">F3</option>
+        <option value="185">F#3/Gb3</option>
+        <option value="196">G3</option>
+        <option value="207.7">G#3/Ab3</option>
+        <option value="220">A3</option>
+        <option value="233.1">A#3/Bb3</option>
+        <option value="246.9">B3</option>
+
+        <option value="65.41">C2</option>
+        <option value="69.3">C#2/Db2</option>
+        <option value="73.42">D2</option>
+        <option value="77.78">D#2/Eb2</option>
+        <option value="82.41">E2</option>
+        <option value="87.31">F2</option>
+        <option value="92.5">F#2/Gb2</option>
+        <option value="98">G2</option>
+        <option value="103.8">G#2/Ab2</option>
+        <option value="110">A2</option>
+        <option value="116.5">A#2/Bb2</option>
+        <option value="123.5">B2</option>
+      </select>
       <div class="step">
         <input type="checkbox" id="step9" />
         <label for="step9"></label>
@@ -96,8 +233,180 @@
         <label for="step16"></label>
       </div>
     </div>
+    <div class="sequencer">
+      <select id="rowThreePitch">
+        <option value="523.3">C5</option>
+        <option value="554.4">C#5/Db5</option>
+        <option value="587.3">D5</option>
+        <option value="622.3">D#5/Eb5</option>
+        <option value="659.3">E5</option>
+        <option value="698.5">F5</option>
+        <option value="740">F#5/Gb5</option>
+        <option value="784">G5</option>
+        <option value="830.6">G#5/Ab5</option>
+        <option value="880">A5</option>
+        <option value="932.3">A#5/Bb5</option>
+        <option value="987.8">B5</option>
 
-    <!-- <audio id="middleC" src="oscillator.js"></audio> -->
+        <option value="261.626">C4</option>
+        <option value="277.183">C#4/Db4</option>
+        <option value="293.665">D4</option>
+        <option value="311.127">D#4/Eb4</option>
+        <option value="329.628">E4</option>
+        <option value="349.228">F4</option>
+        <option value="369.994">F#4/Gb4</option>
+        <option value="391.995">G4</option>
+        <option value="415.305">G#4/Ab4</option>
+        <option value="440">A4</option>
+        <option value="466.164">A#4/Bb4</option>
+        <option value="493.883">B4</option>
+
+        <option value="130.8">C3</option>
+        <option value="138.6">C#3/Db3</option>
+        <option value="146.8">D3</option>
+        <option value="155.6">D#3/Eb3</option>
+        <option value="164.8">E3</option>
+        <option value="174.6">F3</option>
+        <option value="185">F#3/Gb3</option>
+        <option value="196">G3</option>
+        <option value="207.7">G#3/Ab3</option>
+        <option value="220">A3</option>
+        <option value="233.1">A#3/Bb3</option>
+        <option value="246.9">B3</option>
+
+        <option value="65.41">C2</option>
+        <option value="69.3">C#2/Db2</option>
+        <option value="73.42">D2</option>
+        <option value="77.78">D#2/Eb2</option>
+        <option value="82.41">E2</option>
+        <option value="87.31">F2</option>
+        <option value="92.5">F#2/Gb2</option>
+        <option value="98">G2</option>
+        <option value="103.8">G#2/Ab2</option>
+        <option value="110">A2</option>
+        <option value="116.5">A#2/Bb2</option>
+        <option value="123.5">B2</option>
+      </select>
+      <div class="step">
+        <input type="checkbox" id="step17" />
+        <label for="step17"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step18" />
+        <label for="step18"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step19" />
+        <label for="step19"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step20" />
+        <label for="step20"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step21" />
+        <label for="step21"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step22" />
+        <label for="step22"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step23" />
+        <label for="step23"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step24" />
+        <label for="step24"></label>
+      </div>
+    </div>
+    <div class="sequencer">
+      <select id="rowFourPitch">
+        <option value="523.3">C5</option>
+        <option value="554.4">C#5/Db5</option>
+        <option value="587.3">D5</option>
+        <option value="622.3">D#5/Eb5</option>
+        <option value="659.3">E5</option>
+        <option value="698.5">F5</option>
+        <option value="740">F#5/Gb5</option>
+        <option value="784">G5</option>
+        <option value="830.6">G#5/Ab5</option>
+        <option value="880">A5</option>
+        <option value="932.3">A#5/Bb5</option>
+        <option value="987.8">B5</option>
+
+        <option value="261.626">C4</option>
+        <option value="277.183">C#4/Db4</option>
+        <option value="293.665">D4</option>
+        <option value="311.127">D#4/Eb4</option>
+        <option value="329.628">E4</option>
+        <option value="349.228">F4</option>
+        <option value="369.994">F#4/Gb4</option>
+        <option value="391.995">G4</option>
+        <option value="415.305">G#4/Ab4</option>
+        <option value="440">A4</option>
+        <option value="466.164">A#4/Bb4</option>
+        <option value="493.883">B4</option>
+
+        <option value="130.8">C3</option>
+        <option value="138.6">C#3/Db3</option>
+        <option value="146.8">D3</option>
+        <option value="155.6">D#3/Eb3</option>
+        <option value="164.8">E3</option>
+        <option value="174.6">F3</option>
+        <option value="185">F#3/Gb3</option>
+        <option value="196">G3</option>
+        <option value="207.7">G#3/Ab3</option>
+        <option value="220">A3</option>
+        <option value="233.1">A#3/Bb3</option>
+        <option value="246.9">B3</option>
+
+        <option value="65.41">C2</option>
+        <option value="69.3">C#2/Db2</option>
+        <option value="73.42">D2</option>
+        <option value="77.78">D#2/Eb2</option>
+        <option value="82.41">E2</option>
+        <option value="87.31">F2</option>
+        <option value="92.5">F#2/Gb2</option>
+        <option value="98">G2</option>
+        <option value="103.8">G#2/Ab2</option>
+        <option value="110">A2</option>
+        <option value="116.5">A#2/Bb2</option>
+        <option value="123.5">B2</option>
+      </select>
+      <div class="step">
+        <input type="checkbox" id="step25" />
+        <label for="step25"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step26" />
+        <label for="step26"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step27" />
+        <label for="step27"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step28" />
+        <label for="step28"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step29" />
+        <label for="step29"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step30" />
+        <label for="step30"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step31" />
+        <label for="step31"></label>
+      </div>
+      <div class="step">
+        <input type="checkbox" id="step32" />
+        <label for="step32"></label>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
